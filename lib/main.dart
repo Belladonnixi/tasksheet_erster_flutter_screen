@@ -1,3 +1,4 @@
+// import 'package:erster_flutter_screen/anfaenger_version/anfaenger.dart';
 import 'package:erster_flutter_screen/presentation/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.urbanistTextTheme(),
       ),
       home: const SettingsScreen(),
+      //const MyApp2(),
     );
   }
 }
