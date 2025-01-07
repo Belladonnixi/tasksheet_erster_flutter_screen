@@ -1,5 +1,6 @@
 import 'package:erster_flutter_screen/data/settings_data.dart';
 import 'package:erster_flutter_screen/model/settings_item.dart';
+import 'package:erster_flutter_screen/model/settings_section.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
