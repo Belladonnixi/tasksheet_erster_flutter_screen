@@ -1,16 +1,6 @@
 # erster_flutter_screen
 
-A new Flutter project.
 
-## Getting Started
+## Aufgabe
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot 2025-01-07 at 15 49 57](https://github.com/user-attachments/assets/ea32f19c-b6d2-447d-8161-c605c019a064)
