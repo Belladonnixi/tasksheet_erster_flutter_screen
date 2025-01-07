@@ -1,6 +1,9 @@
 import 'package:erster_flutter_screen/data/settings_data.dart';
 import 'package:erster_flutter_screen/model/settings_item.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+
+final Logger _logger = Logger('SettingsScreen');
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -93,7 +96,7 @@ class SettingsScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextButton(
-              onPressed: () => print('Ausloggen tapped'),
+              onPressed: () => _logger.info('Ausloggen tapped'),
               child: const Text(
                 'Ausloggen',
                 style: TextStyle(
@@ -103,7 +106,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () => print('Account löschen tapped'),
+              onPressed: () => _logger.info('Account löschen tapped'),
               child: const Text(
                 'Account löschen',
                 style: TextStyle(
