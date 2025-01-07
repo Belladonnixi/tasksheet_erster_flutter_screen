@@ -12,6 +12,9 @@ class SettingsScreen extends StatelessWidget {
     for (var item in settingsItems) {
       // `putIfAbsent` fügt eine neue Kategorie hinzu, falls sie nicht existiert,
       // und fügt anschließend das Item der entsprechenden Liste hinzu.
+      // Wenn die Kategorie bereits existiert, wird das Item einfach der Liste hinzugefügt.
+      // Das `=> []` erstellt eine leere Liste, falls die Kategorie noch nicht existiert.
+      // Anschließend wird das Item zur Liste hinzugefügt.
       groupedItems.putIfAbsent(item.category, () => []).add(item);
     }
 
