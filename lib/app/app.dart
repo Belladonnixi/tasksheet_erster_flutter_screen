@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 
+final log = Logger('SettingsApp');
+
 class SettingsApp extends StatelessWidget {
   const SettingsApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final log = Logger('MyApp');
-    log.info('Building MyApp');
+    log.info('Building SettingsApp');
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
