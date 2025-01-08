@@ -9,4 +9,5 @@ tasksheet aufgabe
 ## Lösung
 
 ![simulator_screenshot_0EA4FC05-4732-4588-BED6-68DC7AA87AA4](https://github.com/user-attachments/assets/08322594-9fea-4f49-9475-c3476cc404c1)  
-![Screenshot_1736319272](https://github.com/user-attachments/assets/f35443ce-162a-49bf-9d20-8117b487a808)
+
+![Screenshot_1736319500](https://github.com/user-attachments/assets/f0869b64-8943-4b46-8d4d-1cbace2525f6)
