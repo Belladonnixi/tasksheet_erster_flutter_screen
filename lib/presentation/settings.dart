@@ -1,17 +1,19 @@
-import 'package:erster_flutter_screen/data/mock_database_repository.dart';
-import 'package:erster_flutter_screen/model/settings_item.dart';
-import 'package:erster_flutter_screen/model/settings_section.dart';
+import 'package:erster_flutter_screen/models/settings_item.dart';
+import 'package:erster_flutter_screen/models/settings_section.dart';
+import 'package:erster_flutter_screen/providers/settings_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
 
 final Logger _logger = Logger('SettingsScreen');
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final MockDatabaseRepository repository = MockDatabaseRepository();
+  Widget build(BuildContext context, WidgetRef ref) {
+    // beobachtet den SettingsItemsProvider und aktualisiert das Widget, wenn sich die Daten ändern
+    final settingsItemsAsyncValue = ref.watch(settingsItemsProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -28,25 +30,19 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: FutureBuilder<List<SettingsItem>>(
-        future: repository.getSettingsItems(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No settings items available'));
-          }
-
-          final settingsItems = snapshot.data!;
+      // Die Daten werden basierend auf dem Status des AsyncValue-Objekts geladen
+      body: settingsItemsAsyncValue.when(
+        data: (settingsItems) {
           final Map<SettingsCategory, List<SettingsItem>> groupedItems = {};
           for (var item in settingsItems) {
+            // `putIfAbsent` fügt die Kategorie hinzu, wenn sie nicht existiert, und gibt eine leere Liste zurück.
             groupedItems.putIfAbsent(item.category, () => []).add(item);
           }
 
+          // Erstelle eine Liste von SettingsSections aus den gruppierten Daten.
           final List<SettingsSection> sections =
               groupedItems.entries.map((entry) {
+            // erstellt eine Sectioorien für jede Kategorie
             return SettingsSection(items: entry.value);
           }).toList();
 
@@ -57,6 +53,7 @@ class SettingsScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Kategorie Titel wird angezeigt
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16.0,
@@ -70,6 +67,8 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // mit dem Spread-Operator werden die Items in der Liste angezeigt so iteriert man durch die
+                  // Liste um sie als ListTile anzeigen zu können
                   ...section.items.map(
                     (item) {
                       return ListTile(
@@ -83,11 +82,21 @@ class SettingsScreen extends StatelessWidget {
                       );
                     },
                   ),
+                  // Abstand nach der Section, wenn es nicht die letzte ist.
                   if (sectionIndex < sections.length - 1)
                     const SizedBox(height: 16.0),
                 ],
               );
             },
+          );
+        },
+        // solange die Daten geladen werden, wird ein Ladeindikator angezeigt
+        loading: () => const Center(child: CircularProgressIndicator()),
+        // zeigt den Fehler an, sollte einer auftreten und loggt die Fehlermeldung
+        error: (error, stack) {
+          _logger.severe('Error: $error', error, stack);
+          return const Center(
+            child: Text('An error occurred. Please try again.'),
           );
         },
       ),

@@ -1,4 +1,4 @@
-import 'package:erster_flutter_screen/model/settings_item.dart';
+import 'package:erster_flutter_screen/models/settings_item.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 

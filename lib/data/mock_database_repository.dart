@@ -1,6 +1,6 @@
 import 'package:erster_flutter_screen/data/data_repository.dart';
 import 'package:erster_flutter_screen/data/settings_data.dart';
-import 'package:erster_flutter_screen/model/settings_item.dart';
+import 'package:erster_flutter_screen/models/settings_item.dart';
 import 'package:logging/logging.dart';
 
 final Logger _logger = Logger('MockDatabaseRepository');
