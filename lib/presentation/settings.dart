@@ -56,7 +56,7 @@ class SettingsScreen extends ConsumerWidget {
                   // Kategorie Titel wird angezeigt
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
+                      horizontal: 24.0,
                       vertical: 8.0,
                     ),
                     child: Text(
@@ -72,12 +72,14 @@ class SettingsScreen extends ConsumerWidget {
                   ...section.items.map(
                     (item) {
                       return ListTile(
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 24.0),
                         leading: Icon(item.icon),
                         title: Text(
                           item.title,
                           style: const TextStyle(fontSize: 16),
                         ),
-                        trailing: const Icon(Icons.arrow_forward_ios),
+                        trailing: const Icon(Icons.chevron_right),
                         onTap: item.onTap,
                       );
                     },

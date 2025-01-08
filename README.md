@@ -1,5 +1,6 @@
 # erster_flutter_screen
 
+die Aufgabe heißt nur erster Flutter Screen!
 tasksheet aufgabe die ich für mich spannender gestaltet habe mit:
 
 - Datarepository und MockDatabase implementierung
@@ -14,6 +15,6 @@ dazu ein ganz simples Theme gesetzt mit SeedColor und einem anderen Font
 
 ## Lösung
 
-![simulator_screenshot_0EA4FC05-4732-4588-BED6-68DC7AA87AA4](https://github.com/user-attachments/assets/08322594-9fea-4f49-9475-c3476cc404c1)  
 
-![Screenshot_1736319500](https://github.com/user-attachments/assets/f0869b64-8943-4b46-8d4d-1cbace2525f6)
+
+
