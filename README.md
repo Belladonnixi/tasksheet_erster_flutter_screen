@@ -1,6 +1,6 @@
 # erster_flutter_screen
 
-tasksheet aufgabe 
+tasksheet aufgabe die ich für mich spannender gestaltet habe mit dem Einsatz von Riverpod und auch einem logger statt print benutzen.
 
 ## Aufgabe
 
