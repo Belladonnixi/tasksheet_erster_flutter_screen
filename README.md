@@ -10,7 +10,8 @@ dazu ein ganz simples Theme gesetzt mit SeedColor und einem anderen Font
 
 ## Aufgabe
 
-![Screenshot 2025-01-07 at 15 49 57](https://github.com/user-attachments/assets/ea32f19c-b6d2-447d-8161-c605c019a064)
+![Screenshot 2025-01-08 at 18 53 45](https://github.com/user-attachments/assets/02e957c8-95b0-4e8b-b0a3-ab0f2eaf6e15)
+
 
 ## Lösung
 
