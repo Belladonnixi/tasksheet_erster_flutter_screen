@@ -33,6 +33,7 @@ class MyApp2 extends StatelessWidget {
           'Einstellungen',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        centerTitle: true,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1.0),
           child: Divider(

@@ -34,6 +34,7 @@ class SettingsScreen extends StatelessWidget {
           'Einstellungen',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        centerTitle: true,
         // Fügt eine horizontale Trennlinie direkt unter der App-Leiste hinzu.
         bottom: PreferredSize(
           // Legt die Höhe der Trennlinie fest.
@@ -74,7 +75,10 @@ class SettingsScreen extends StatelessWidget {
                 (item) {
                   return ListTile(
                     leading: Icon(item.icon),
-                    title: Text(item.title),
+                    title: Text(
+                      item.title,
+                      style: const TextStyle(fontSize: 16),
+                    ),
                     trailing: const Icon(Icons.arrow_forward_ios),
                     onTap: item.onTap,
                   );
