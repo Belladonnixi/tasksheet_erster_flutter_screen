@@ -1,6 +1,12 @@
 # erster_flutter_screen
 
-tasksheet aufgabe die ich für mich spannender gestaltet habe mit dem Einsatz von Riverpod und auch einem logger statt print benutzen.
+tasksheet aufgabe die ich für mich spannender gestaltet habe mit:
+
+- Datarepository und MockDatabase implementierung
+- Riverpod
+- Logging
+
+dazu ein ganz simples Theme gesetzt mit SeedColor und einem anderen Font
 
 ## Aufgabe
 
