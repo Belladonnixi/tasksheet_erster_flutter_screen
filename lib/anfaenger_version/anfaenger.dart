@@ -2,31 +2,31 @@ import 'package:flutter/material.dart';
 
 // Mögliche Anfänger Version eventuell?
 
-// Definition für ein ListItem
+// Modelklasse für ein ListItem
 class ListItem {
   ListItem(this.icon, this.title);
   final IconData icon;
   final String title;
 }
 
+final Map<String, List<ListItem>> itemsMap = {
+  'Account': [
+    ListItem(Icons.language, 'App-Sprache'),
+    ListItem(Icons.block, 'Blockierte User'),
+  ],
+  'Info': [
+    ListItem(Icons.info, 'Datenschutzerklärung'),
+    ListItem(Icons.gavel, "AGB's"),
+    ListItem(Icons.article, 'Lizenzen'),
+    ListItem(Icons.group, 'Community Richtlinien'),
+  ],
+};
+
 class MyApp2 extends StatelessWidget {
   const MyApp2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, List<ListItem>> itemsMap = {
-      'Account': [
-        ListItem(Icons.language, 'App-Sprache'),
-        ListItem(Icons.block, 'Blockierte User'),
-      ],
-      'Info': [
-        ListItem(Icons.info, 'Datenschutzerklärung'),
-        ListItem(Icons.gavel, "AGB's"),
-        ListItem(Icons.article, 'Lizenzen'),
-        ListItem(Icons.group, 'Community Richtlinien'),
-      ],
-    };
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(
