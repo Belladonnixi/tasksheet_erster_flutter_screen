@@ -1,7 +1,6 @@
-# erster_flutter_screen
+# tasksheet_erster_flutter_screen
 
-die Aufgabe heißt nur erster Flutter Screen!
-tasksheet aufgabe die ich für mich spannender gestaltet habe mit:
+Tasksheet Aufgabe die ich für mich spannender gestaltet habe mit:
 
 - Datarepository und MockDatabase implementierung
 - Riverpod
@@ -15,6 +14,5 @@ dazu ein ganz simples Theme gesetzt mit SeedColor und einem anderen Font
 
 ## Lösung
 
-
-
+![Simulator Screenshot - iPhone 16 Pro - 2025-01-08 at 18 38 56](https://github.com/user-attachments/assets/2d4185bf-c41b-4303-a211-2c65295c45b3)
 
