@@ -47,6 +47,7 @@ class SettingsScreen extends ConsumerWidget {
           }).toList();
 
           return ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: sections.length,
             itemBuilder: (context, sectionIndex) {
               final section = sections[sectionIndex];
