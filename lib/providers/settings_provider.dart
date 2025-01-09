@@ -3,6 +3,7 @@ import 'package:erster_flutter_screen/models/settings_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'dart:convert';
 
 part 'settings_provider.g.dart';
 
@@ -19,11 +20,23 @@ Future<MockDatabaseRepository> mockDatabaseRepository(Ref ref) async {
 // die von MockDatabaseRepository geholt werden deshlab auch als FutureProvider
 // weil ich in MockDatabaseRepository auch eine async Verzögerung extra eingebaut habe
 @riverpod
-Future<List<SettingsItem>> settingsItems(Ref ref) async {
+Future<Map<SettingsCategory, List<SettingsItem>>> settingsItems(Ref ref) async {
   // Die Instanz von MockDatabaseRepository wird mit ref.watch() beobachtet.
   final repository = await ref.watch(mockDatabaseRepositoryProvider.future);
-  _logger.info('fetching settings items');
+  _logger.info('Fetching settings items');
 
   // Holen der Daten aus dem Repository.
-  return await repository.getSettingsItems();
+  final data = await repository.getSettingsItems();
+
+  // Logge die tatsächlichen Daten (serialisierbar machen nur für Logging, nicht die Map ändern)
+  final serializableData = data.map(
+    (key, value) => MapEntry(
+      key.name, // Kategorie als String
+      value.map((item) => item.toJson()).toList(), // Items als JSON
+    ),
+  );
+  _logger.info('Settings items fetched: ${jsonEncode(serializableData)}');
+
+  // Gib die ursprüngliche Map zurück (Schlüssel bleiben `SettingsCategory`)
+  return data;
 }

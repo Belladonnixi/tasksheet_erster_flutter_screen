@@ -6,13 +6,20 @@ enum SettingsCategory {
   info,
 }
 
+extension SettingsCategoryExtension on SettingsCategory {
+  String get name {
+    print('Calling name for $this');
+    switch (this) {
+      case SettingsCategory.account:
+        return 'Account';
+      case SettingsCategory.info:
+        return 'Info';
+    }
+  }
+}
+
 // Die Model class für ein Einstellungs-item das es auch möglich macht die Kategorien als String zu bekommen
 class SettingsItem {
-  final SettingsCategory category;
-  final IconData icon;
-  final String title;
-  final VoidCallback? onTap;
-
   SettingsItem({
     required this.category,
     required this.icon,
@@ -20,12 +27,17 @@ class SettingsItem {
     this.onTap,
   });
 
-  String get categoryTitle {
-    switch (category) {
-      case SettingsCategory.account:
-        return 'Account';
-      case SettingsCategory.info:
-        return 'Info';
-    }
-  }
+  final SettingsCategory category;
+  final IconData icon;
+  final String title;
+  final VoidCallback? onTap;
+
+  String get categoryTitle => category.name;
+
+  // JSON-Repräsentation für Logging
+  Map<String, dynamic> toJson() => {
+        'category': category.name,
+        'icon': icon.codePoint, // IconData als Integer speichern
+        'title': title,
+      };
 }

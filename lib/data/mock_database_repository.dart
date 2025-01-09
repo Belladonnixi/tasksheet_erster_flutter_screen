@@ -18,12 +18,12 @@ class MockDatabaseRepository implements DataRepository {
   }
 
   @override
-  Future<List<SettingsItem>> getSettingsItems() async {
+  Future<Map<SettingsCategory, List<SettingsItem>>> getSettingsItems() async {
     _logger.info('Fetching settings items from MockDatabaseRepository');
     return Future.delayed(
       const Duration(
           milliseconds: 500), // Ich habe eine Simulierte Latenz eingebaut
-      () => settingsItems,
+      () => settingsItemsMap,
     );
   }
 }
