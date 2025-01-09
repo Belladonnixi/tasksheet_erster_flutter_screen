@@ -8,7 +8,6 @@ enum SettingsCategory {
 
 extension SettingsCategoryExtension on SettingsCategory {
   String get name {
-    print('Calling name for $this');
     switch (this) {
       case SettingsCategory.account:
         return 'Account';
