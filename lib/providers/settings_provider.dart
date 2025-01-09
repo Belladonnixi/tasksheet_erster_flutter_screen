@@ -10,9 +10,9 @@ final Logger _logger = Logger('Providers');
 
 // stellt eine Instanz von MockDatabaseRepository bereit
 @riverpod
-MockDatabaseRepository mockDatabaseRepository(Ref ref) {
+Future<MockDatabaseRepository> mockDatabaseRepository(Ref ref) async {
   _logger.info('Creating MockDatabaseRepository');
-  return MockDatabaseRepository();
+  return await MockDatabaseRepository.create();
 }
 
 // stellt eine Liste von SettingsItems bereit
@@ -21,7 +21,7 @@ MockDatabaseRepository mockDatabaseRepository(Ref ref) {
 @riverpod
 Future<List<SettingsItem>> settingsItems(Ref ref) async {
   // Die Instanz von MockDatabaseRepository wird mit ref.watch() beobachtet.
-  final repository = ref.watch(mockDatabaseRepositoryProvider);
+  final repository = await ref.watch(mockDatabaseRepositoryProvider.future);
   _logger.info('fetching settings items');
 
   // Holen der Daten aus dem Repository.

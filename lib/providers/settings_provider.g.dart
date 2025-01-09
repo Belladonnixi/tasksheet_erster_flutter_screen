@@ -7,12 +7,12 @@ part of 'settings_provider.dart';
 // **************************************************************************
 
 String _$mockDatabaseRepositoryHash() =>
-    r'13d21beeef8a17ac644b87fdf9434cca6d2c900e';
+    r'e56de4cb600604ba643c1fe82cbd98eb6a031f95';
 
 /// See also [mockDatabaseRepository].
 @ProviderFor(mockDatabaseRepository)
 final mockDatabaseRepositoryProvider =
-    AutoDisposeProvider<MockDatabaseRepository>.internal(
+    AutoDisposeFutureProvider<MockDatabaseRepository>.internal(
   mockDatabaseRepository,
   name: r'mockDatabaseRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -25,8 +25,8 @@ final mockDatabaseRepositoryProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef MockDatabaseRepositoryRef
-    = AutoDisposeProviderRef<MockDatabaseRepository>;
-String _$settingsItemsHash() => r'ad01c42ebe4b0914e951cfc237f0e8d6944011a8';
+    = AutoDisposeFutureProviderRef<MockDatabaseRepository>;
+String _$settingsItemsHash() => r'e5d377c43e34e2b9431b86ebb585ebad39082677';
 
 /// See also [settingsItems].
 @ProviderFor(settingsItems)
