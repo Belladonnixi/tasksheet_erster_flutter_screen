@@ -66,14 +66,13 @@ class SettingsScreen extends ConsumerWidget {
                           trailing: const Icon(Icons.chevron_right),
                           onTap: item.onTap,
                         ),
-                      const SizedBox(height: 16),
                     ],
                   ],
                 ),
               ),
               // Bereich am unteren Rand der Seite mit Buttons
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
